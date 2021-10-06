@@ -10,4 +10,4 @@ import Webview from './src/Webview'
 import LoginScreen from './src/Login2'
 import RegisterScreen from './src/Register'
 import Login from './src/Login'
-AppRegistry.registerComponent(appName, () => Login);
+AppRegistry.registerComponent(appName, () => App);
