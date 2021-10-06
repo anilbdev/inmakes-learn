@@ -27,6 +27,10 @@ export default class Flexbox extends Component{
         }
     }
 
+    componentDidMount(){
+        console.log("the username is",this.props.route.params.username);
+    }
+
     updateText(){
         console.log('update method clicked');
         this.setState({
@@ -49,7 +53,7 @@ export default class Flexbox extends Component{
 
                 </TouchableHighlight>
 
-                <FlexContent name='Mark'>
+                <FlexContent name={this.props.route.params.username}>
 
                 </FlexContent>
 

@@ -14,6 +14,20 @@ import{
 
  //App is the name given to the class
 export default class Login extends Component{    
+constructor(){
+  super();
+  this.state={
+    name:null
+  }
+}
+
+updateValue(username){
+  //console.log(username);
+  this.setState({
+    name:username
+  })
+}
+
   render(){
     return(
       <View style = {styles.container}>
@@ -23,11 +37,19 @@ export default class Login extends Component{
 
           </Image>
           <Text style = {styles.textView}>Welcome to React Native Journey</Text>
-          <TextInput style={styles.inputView} placeholder='Username'placeholderTextColor='grey' maxLength={10}></TextInput>
+          <TextInput 
+            style={styles.inputView} 
+            placeholder='Username'
+            laceholderTextColor='grey' 
+            maxLength={10}
+            onChangeText={(username)=>this.updateValue(username)}
+            >
+            
+          </TextInput>
           <TextInput style={styles.inputView} placeholder='Password'placeholderTextColor='grey' secureTextEntry={true}></TextInput>
           <TouchableHighlight style = {styles.buttonView}
           underlayColor ='transparent'
-          onPress = {()=>{this.props.navigation.navigate('Flexbox')}}
+          onPress = {()=>this.props.navigation.navigate('Flexbox',{username:this.state.name})}
           >
             <Text style = {styles.buttonText}>Login</Text>
           </TouchableHighlight>
