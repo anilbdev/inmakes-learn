@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,Text,StyleSheet,ActivityIndicator} from 'react-native'
+import {View,Text,StyleSheet,ActivityIndicator,FlatList} from 'react-native'
 
 
 
@@ -8,7 +8,8 @@ class Categoty extends Component {
     constructor(){
         super()
         this.state={
-            loader:false
+            loader:false,
+            DATA:[]
         }
 
     }
@@ -22,8 +23,11 @@ class Categoty extends Component {
         fetch('https://api.sampleapis.com/coffee/hot')
         .then((response)=>response.json())
         .then((response)=>{
+            if(response.length > 0){
+                this.setState({DATA:response})
+            }
             this.setState({loader:false})
-            console.log('Your response is: ',response);
+            
         })
         .catch((error)=>{
             this.setState({loader:false})
@@ -32,12 +36,24 @@ class Categoty extends Component {
     }
 
     render() {
+        const renderItem=({item})=>(
+            
+            <View style={styles.itemContainer}>
+                <Text>{item.title}</Text>
+                <Text style={styles.itemDesc}>{item.description}</Text>
+                
+            </View>
+        )
+
         return (
             <View style={styles.container}>
                 <ActivityIndicator size={50} color='grey' animating={this.state.loader}/>
                 <Text style={styles.homeText}
-                    onPress={()=>this.getData()}>Hi this is Categoty page</Text>
-
+                    onPress={()=>this.getData()}>Hi this is Category List</Text>
+                <FlatList style={{width:'95%',marginTop:10}}
+                    data={this.state.DATA}
+                    renderItem={renderItem}
+                />
             </View>
         )
     }
@@ -50,11 +66,25 @@ const styles =StyleSheet.create({
             flex:1,
             alignItems:'center',
             justifyContent:'center',
-            backgroundColor:'blue'
+            backgroundColor:'#eeeeee'
         },
         homeText:{
             fontSize:28,
             fontWeight:'bold',
-            color:'#ffffff'
+            color:'black'
+        },
+        itemContainer:{
+            width:'100%',          
+            padding:10,
+            backgroundColor:'#ffffff',
+            elevation:4,
+            marginBottom:10          
+
+        },
+        itemDesc:{
+            fontSize:14,
+            color:'#369',
+            fontWeight:'bold',
+            marginTop:10
         }
 })
