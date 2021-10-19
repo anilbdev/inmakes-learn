@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {View,Text,StyleSheet,ActivityIndicator,FlatList} from 'react-native'
+import axios from 'axios'
 
 
 
@@ -35,6 +36,17 @@ class Categoty extends Component {
         })
     }
 
+    getAxiosData(){
+        this.setState({loader:true})
+        axios.get('https://api.sampleapis.com/coffee/hot')
+        .then((response)=>{
+            this.setState({loader:false})
+            console.log('axios response : ',response)})
+        .catch((error)=>{
+            this.setState({loader:false})
+            console.log('axios error is :',error)})
+    }
+
     render() {
         const renderItem=({item})=>(
             
@@ -49,7 +61,7 @@ class Categoty extends Component {
             <View style={styles.container}>
                 <ActivityIndicator size={50} color='grey' animating={this.state.loader}/>
                 <Text style={styles.homeText}
-                    onPress={()=>this.getData()}>Hi this is Category List</Text>
+                    onPress={()=>this.getAxiosData()}>Hi this is Category List</Text>
                 <FlatList style={{width:'95%',marginTop:10}}
                     data={this.state.DATA}
                     renderItem={renderItem}
