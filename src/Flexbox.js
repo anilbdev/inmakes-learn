@@ -11,7 +11,7 @@ class FlexContent extends Component{
     render(){
         return(
             <View>
-                <Text style={styles.contentStyle}>HI my name is {this.props.name}</Text>
+                <Text style={styles.contentStyle}>HI my name1 is {this.props.name}</Text>
             </View>
         )
     }
@@ -50,6 +50,13 @@ export default class Flexbox extends Component{
                     underlayColor ='red'
                     onPress={()=>this.updateText()}>
                     <Text style={styles.buttonText}>Update</Text>
+
+                </TouchableHighlight>
+                <TouchableHighlight 
+                    style={styles.button}
+                    onPress={()=>this.props.navigation.navigate('Drawer')}                
+                >
+                    <Text style={styles.buttonText}>CLICK HERE</Text>
 
                 </TouchableHighlight>
 

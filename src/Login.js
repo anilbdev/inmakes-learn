@@ -12,7 +12,7 @@ import{
   TouchableHighlight
 }from 'react-native'
 
- //App is the name given to the class
+ //Login is the name given to the class
 export default class Login extends Component{    
 constructor(){
   super();
@@ -40,7 +40,7 @@ updateValue(username){
           <TextInput 
             style={styles.inputView} 
             placeholder='Username'
-            laceholderTextColor='grey' 
+            placeholderTextColor='grey' 
             maxLength={10}
             onChangeText={(username)=>this.updateValue(username)}
             >
@@ -49,7 +49,7 @@ updateValue(username){
           <TextInput style={styles.inputView} placeholder='Password'placeholderTextColor='grey' secureTextEntry={true}></TextInput>
           <TouchableHighlight style = {styles.buttonView}
           underlayColor ='transparent'
-          onPress = {()=>this.props.navigation.navigate('Flexbox',{username:this.state.name})}
+          onPress = {()=>this.props.navigation.navigate('Tab',{username:this.state.name})}
           >
             <Text style = {styles.buttonText}>Login</Text>
           </TouchableHighlight>
