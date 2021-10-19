@@ -14,16 +14,19 @@ class Categoty extends Component {
     }
 
     componentDidMount(){
-        this.getData()
+       // this.getData()
     }
 
     getData(){
+        this.setState({loader:true})
         fetch('https://api.sampleapis.com/coffee/hot')
         .then((response)=>response.json())
         .then((response)=>{
+            this.setState({loader:false})
             console.log('Your response is: ',response);
         })
         .catch((error)=>{
+            this.setState({loader:false})
             console.log('Eroor is :',error);
         })
     }
@@ -31,8 +34,9 @@ class Categoty extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <ActivityIndicator size={50} color='grey' animating={true}/>
-                <Text style={styles.homeText}>Hi this is Categoty page</Text>
+                <ActivityIndicator size={50} color='grey' animating={this.state.loader}/>
+                <Text style={styles.homeText}
+                    onPress={()=>this.getData()}>Hi this is Categoty page</Text>
 
             </View>
         )
