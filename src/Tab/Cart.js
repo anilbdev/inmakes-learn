@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {View,Text,StyleSheet,ScrollView} from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 
@@ -10,6 +11,20 @@ class Cart extends Component {
                 <ScrollView style={styles.scrollConatiner}>
                     <View style={styles.scrollChildView}>
                         <View style={styles.headerCard}></View>
+                        <View style={styles.baseLineCard}>
+                            <View style={styles.textHolder}>
+                                <Icon name='edit' size={16} color={'black'}/>
+                                <Text style={{fontSize:16,marginLeft:10}}>Mounting</Text>
+                            </View>
+                            <View style={styles.textHolder}>
+                                <Icon name='edit' size={16} color={'black'}/>
+                                <Text style={{fontSize:16,marginLeft:10}}>Updating</Text>
+                            </View>
+                            <View style={styles.textHolder}>
+                                <Icon name='edit' size={16} color={'black'}/>
+                                <Text style={{fontSize:16,marginLeft:10}}>Unmounting</Text>
+                            </View>
+                        </View>
                     </View>
 
                 </ScrollView>
@@ -42,6 +57,19 @@ const styles =StyleSheet.create({
             width:'95%',
             height:200,
             alignItems:'center',
-            backgroundColor:'#ffffff'
+            backgroundColor:'#ffffff',
+            elevation:4,
+            marginTop:30
+        },
+        baseLineCard:{
+            width:'95%',
+            padding:15,
+            backgroundColor:'#ffffff',
+            marginTop:30
+        },
+        textHolder:{
+            marginTop:20,
+            flexDirection:'row',
+            alignItems:'center'
         }
 })
