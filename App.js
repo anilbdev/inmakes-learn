@@ -90,7 +90,7 @@ function myTab(){
     }}
     >
       <Tab.Screen
-        name='Cart'
+        name='LieCycle'
         component={Cart}
         options={{
           tabBarActiveTintColor:'blue',

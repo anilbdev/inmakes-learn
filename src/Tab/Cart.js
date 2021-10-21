@@ -7,7 +7,7 @@ class Cart extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.homeText}>Hi this is Cart page</Text>
+                
 
             </View>
         )
@@ -23,9 +23,5 @@ const styles =StyleSheet.create({
             justifyContent:'center',
             backgroundColor:'blue'
         },
-        homeText:{
-            fontSize:28,
-            fontWeight:'bold',
-            color:'#ffffff'
-        }
+        
 })
