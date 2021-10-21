@@ -5,12 +5,19 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 class Cart extends Component {
+constructor(){
+    super()
+    this.state={headerText:null}
+}
+
     render() {
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.scrollConatiner}>
                     <View style={styles.scrollChildView}>
-                        <View style={styles.headerCard}></View>
+                        <View style={styles.headerCard}>
+                            <Text style={{fontSize:16,fontWeight:'bold',marginTop:10}}>{this.state.headerText}</Text>
+                        </View>
                         <View style={styles.baseLineCard}>
                             <View style={styles.textHolder}>
                                 <Icon name='edit' size={16} color={'black'}/>
