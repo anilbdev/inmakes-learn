@@ -5,12 +5,23 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 class Cart extends Component {
-constructor(){
-    super()
-    this.state={headerText:null}
-}
+    constructor(){
+        console.log("constructor called");
+        super()
+        this.state={headerText:null}
+    }
+
+    static getDerivedStateFromProps(){
+        console.log("get drived state from props called");
+        return null
+    }
+
+    componentDidMount(){
+        console.log("component called-did mount");
+    }
 
     render() {
+        console.log("Render called");
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.scrollConatiner}>
