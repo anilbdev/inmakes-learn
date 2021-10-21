@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet,ScrollView} from 'react-native'
 
 
 
@@ -7,7 +7,12 @@ class Cart extends Component {
     render() {
         return (
             <View style={styles.container}>
-                
+                <ScrollView style={styles.scrollConatiner}>
+                    <View style={styles.scrollChildView}>
+                        <View style={styles.headerCard}></View>
+                    </View>
+
+                </ScrollView>
 
             </View>
         )
@@ -21,7 +26,22 @@ const styles =StyleSheet.create({
             flex:1,
             alignItems:'center',
             justifyContent:'center',
-            backgroundColor:'blue'
+            backgroundColor:'#eeeeee'
         },
-        
+        scrollConatiner:{
+            width:'100%',
+            height:'100%'
+        },
+        scrollChildView:{
+            width:'100%',
+            alignItems:'center',
+            justifyContent:'center'
+
+        },
+        headerCard:{
+            width:'95%',
+            height:200,
+            alignItems:'center',
+            backgroundColor:'#ffffff'
+        }
 })
