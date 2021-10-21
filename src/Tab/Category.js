@@ -40,8 +40,10 @@ class Categoty extends Component {
         this.setState({loader:true})
         axios.get('https://api.sampleapis.com/coffee/hot')
         .then((response)=>{
-            this.setState({loader:false})
-            console.log('axios response : ',response)})
+            this.setState({loader:false,DATA:response.data})
+            console.log('2');
+            console.log('axios response : ',response.data)})
+            
         .catch((error)=>{
             this.setState({loader:false})
             console.log('axios error is :',error)})
