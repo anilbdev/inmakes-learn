@@ -23,6 +23,14 @@ class Cart extends Component {
     updateState(){
         this.setState({headerText:'Component updated'})
     }
+    // shouldComponentUpdate(){
+    //     console.log('should component updated called');
+    //     return null
+    // }
+
+    componentDidUpdate(){
+        console.log('componenet did update called');
+    }
 
     render() {
         console.log("Render called");
