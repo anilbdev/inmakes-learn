@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,Text,StyleSheet,ScrollView} from 'react-native'
+import {View,Text,StyleSheet,ScrollView,TouchableHighlight} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
@@ -18,6 +18,10 @@ class Cart extends Component {
 
     componentDidMount(){
         console.log("component called-did mount");
+    }
+
+    updateState(){
+        this.setState({headerText:'Component updated'})
     }
 
     render() {
@@ -42,6 +46,15 @@ class Cart extends Component {
                                 <Icon name='edit' size={16} color={'black'}/>
                                 <Text style={{fontSize:16,marginLeft:10}}>Unmounting</Text>
                             </View>
+                            <TouchableHighlight style={{width:'80%',height:55,
+                                backgroundColor:'#360',alignItems:'center',
+                                justifyContent:'center',marginTop:10,
+                                 }}underlayColor='transparent' 
+                                 onPress={()=>this.updateState()} >
+                                <Text style={{color:'#fff',fontWeight:'bold',fontSize:18}}>
+                                    Updating
+                                </Text>
+                            </TouchableHighlight>
                         </View>
                     </View>
 
